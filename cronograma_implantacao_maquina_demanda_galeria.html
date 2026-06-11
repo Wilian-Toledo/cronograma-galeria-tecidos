@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cronograma de Implantação · Galeria dos Tecidos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      /* ── PURPLE SCALE ── */
+      --purple-950: #14052b;
+      --purple-900: #240a52;
+      --purple-800: #371078;
+      --purple-700: #5b21b6;
+      --purple-600: #7c3aed;
+      --purple-500: #8b5cf6;
+      --purple-400: #a78bfa;
+      --purple-300: #c4b5fd;
+      --purple-200: #ddd6fe;
+      --purple-100: #ede9fe;
+      --purple-50:  #f5f3ff;
+
+      /* ── TEAL ACCENT ── */
+      --teal-600: #0d9488;
+      --teal-500: #14b8a6;
+      --teal-400: #2dd4bf;
+      --teal-300: #5eead4;
+      --teal-100: #ccfbf1;
+      --teal-50:  #f0fdfa;
+
+      /* ── AMBER (gate exception) ── */
+      --amber-600: #d97706;
+      --amber-500: #f59e0b;
+      --amber-400: #fbbf24;
+      --amber-100: #fef3c7;
+
+      /* ── INK / NEUTRALS ── */
+      --ink-900: #100a22;
+      --ink-700: #221842;
+      --ink-600: #362a5c;
+      --ink-500: #4a3d70;
+      --ink-400: #6b5d90;
+      --ink-300: #9485b3;
+      --ink-200: #c6bedb;
+      --ink-100: #e8e3f2;
+
+      --canvas: #f7f5fb;
+      --surface: #ffffff;
+      --surface-2: #fbfaff;
+
+      --border: rgba(91, 33, 182, 0.09);
+      --border-strong: rgba(91, 33, 182, 0.16);
+      --guide: rgba(91, 33, 182, 0.05);
+
+      --off-bg: rgba(124, 58, 237, 0.045);
+
+      --shadow-card: 0 2px 4px rgba(36, 10, 82, 0.04), 0 20px 50px -20px rgba(36, 10, 82, 0.18);
+      --shadow-bar: 0 1px 2px rgba(36, 10, 82, 0.10);
+
+      --col-label: 224px;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 14px; -webkit-font-smoothing: antialiased; }
+
+    body {
+      font-family: 'DM Sans', system-ui, sans-serif;
+      color: var(--ink-700);
+      min-height: 100vh;
+      padding: 56px 44px 72px;
+      background-color: var(--canvas);
+      background-image:
+        radial-gradient(ellipse 70% 55% at 18% -10%, rgba(124, 58, 237, 0.10) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 100% 0%, rgba(20, 184, 166, 0.07) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 50% at 50% 120%, rgba(139, 92, 246, 0.06) 0%, transparent 60%);
+      background-attachment: fixed;
+    }
+
+    .wrap { max-width: 1200px; margin: 0 auto; }
+
+    /* ════════ PAGE HEADER ════════ */
+    .page-header {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 32px;
+      margin-bottom: 36px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border-strong);
+      position: relative;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: -1px;
+      width: 88px; height: 2px;
+      background: linear-gradient(90deg, var(--teal-400), var(--teal-500));
+      border-radius: 2px;
+    }
+
+    .eyebrow {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal-600);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .eyebrow .dot {
+      width: 7px; height: 7px; border-radius: 50%;
+      background: var(--teal-400);
+      box-shadow: 0 0 0 3px rgba(45, 212, 191, 0.18), 0 0 10px rgba(20, 184, 166, 0.6);
+      animation: pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 3px rgba(45,212,191,0.18), 0 0 10px rgba(20,184,166,0.6); }
+      50%      { box-shadow: 0 0 0 5px rgba(45,212,191,0.10), 0 0 16px rgba(20,184,166,0.9); }
+    }
+
+    .page-title {
+      font-family: 'Sora', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      color: var(--ink-900);
+      line-height: 1.02;
+      letter-spacing: -0.025em;
+    }
+    .page-title em {
+      font-style: normal;
+      background: linear-gradient(120deg, var(--purple-700) 0%, var(--purple-500) 55%, var(--teal-500) 130%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .page-subtitle {
+      margin-top: 12px;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--ink-400);
+      letter-spacing: -0.01em;
+    }
+    .page-subtitle b { color: var(--ink-600); font-weight: 600; }
+
+    .meta-stack { display: flex; flex-direction: column; gap: 10px; align-items: flex-end; }
+    .meta-row { display: flex; gap: 8px; }
+    .stat {
+      text-align: right;
+      padding: 10px 16px;
+      border-radius: 14px;
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      box-shadow: 0 2px 8px rgba(36, 10, 82, 0.05);
+    }
+    .stat .num {
+      font-family: 'Sora', sans-serif;
+      font-weight: 800;
+      font-size: 22px;
+      line-height: 1;
+      color: var(--purple-700);
+    }
+    .stat .num.teal { color: var(--teal-600); }
+    .stat .cap {
+      display: block;
+      margin-top: 4px;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-300);
+    }
+
+    /* ════════ GANTT CARD ════════ */
+    .gantt-card {
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      border-radius: 22px;
+      box-shadow: var(--shadow-card);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .g {
+      display: grid;
+      grid-template-columns: var(--col-label) repeat(20, 1fr);
+      font-size: 11px;
+      position: relative;
+    }
+
+    /* ── timeline blueprint guides (full height) ── */
+    .guides {
+      grid-column: 2 / -1;
+      grid-row: 3 / 25;
+      pointer-events: none;
+      z-index: 0;
+      background-image: repeating-linear-gradient(
+        to right,
+        var(--guide) 0, var(--guide) 1px,
+        transparent 1px, transparent calc(100% / 20)
+      );
+    }
+
+    /* ── corner cell ── */
+    .corner {
+      grid-column: 1; grid-row: 1 / 3;
+      background: var(--surface-2);
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border-strong);
+      display: flex; align-items: flex-end; padding: 0 0 12px 22px;
+    }
+    .corner span {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-300);
+    }
+
+    /* ── WEEK HEADERS ── */
+    .wk {
+      grid-row: 1;
+      text-align: center;
+      padding: 16px 6px 10px;
+      font-family: 'Space Mono', monospace;
+      font-weight: 700;
+      font-size: 10px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--purple-500);
+      background: var(--surface-2);
+      border-bottom: 1px solid var(--border);
+      position: relative;
+    }
+    .wk:not(.wk-first)::before {
+      content: '';
+      position: absolute; left: 0; top: 30%; bottom: 30%;
+      width: 1px; background: var(--border-strong);
+    }
+
+    /* ── DAY HEADERS ── */
+    .day {
+      grid-row: 2;
+      text-align: center;
+      padding: 9px 2px 11px;
+      color: var(--ink-300);
+      border-bottom: 1px solid var(--border-strong);
+      background: var(--surface-2);
+      font-size: 10px;
+      font-weight: 500;
+    }
+    .day b {
+      display: block;
+      font-family: 'Sora', sans-serif;
+      font-weight: 700;
+      color: var(--ink-600);
+      font-size: 14px;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
+    .day .hol { color: var(--amber-600); font-weight: 600; }
+
+    /* ── OFF DAYS ── */
+    .off {
+      grid-row: 2 / 25;
+      background: var(--off-bg);
+      z-index: 0;
+    }
+
+    .wkguide { box-shadow: inset 1px 0 0 rgba(124, 58, 237, 0.13); }
+
+    /* ════════ PHASE HEADERS ════════ */
+    .ph {
+      grid-column: 1 / -1;
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 0 20px;
+      background: linear-gradient(100deg, var(--purple-900) 0%, #3c1480 45%, var(--purple-700) 100%);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+      z-index: 2;
+    }
+    .ph::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0;
+      width: 4px; background: var(--teal-400);
+      box-shadow: 0 0 14px rgba(45, 212, 191, 0.7);
+    }
+    .ph::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(circle at 12% 50%, rgba(45,212,191,0.14) 0%, transparent 40%);
+      pointer-events: none;
+    }
+    .ph .pnum {
+      font-family: 'Space Mono', monospace;
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--teal-300);
+      padding: 4px 9px;
+      border: 1px solid rgba(94, 234, 212, 0.35);
+      border-radius: 8px;
+      background: rgba(20, 184, 166, 0.10);
+      flex-shrink: 0;
+    }
+    .ph .ptitle {
+      font-family: 'Sora', sans-serif;
+      font-size: 13px; font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .ph .ptag {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace;
+      font-size: 9.5px; letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+    .ph.crit .ptag { color: var(--amber-400); }
+
+    /* ════════ TASK ROWS ════════ */
+    .lbl {
+      grid-column: 1;
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 0 16px 0 24px;
+      color: var(--ink-600);
+      font-size: 12.5px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      background: var(--surface);
+      position: relative;
+      z-index: 1;
+    }
+    .lbl::before {
+      content: '';
+      position: absolute; left: 0; top: 50%; transform: translateY(-50%);
+      width: 3px; height: 18px; border-radius: 3px;
+      background: var(--cat, var(--border-strong));
+    }
+    .lbl .dur {
+      margin-left: auto;
+      font-family: 'Space Mono', monospace;
+      font-size: 9.5px; font-weight: 700;
+      color: var(--ink-300);
+      padding: 2px 7px;
+      border-radius: 7px;
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    /* row background strip for each task (so off-shading reads behind bar zone) */
+    .rowfill {
+      grid-column: 2 / -1;
+      border-bottom: 1px solid var(--border);
+      z-index: 0;
+    }
+
+    /* ════════ BARS ════════ */
+    .bar {
+      height: 22px;
+      align-self: center;
+      border-radius: 7px;
+      margin: 0 4px;
+      position: relative;
+      z-index: 3;
+      box-shadow: var(--shadow-bar), inset 0 1px 0 rgba(255,255,255,0.45);
+      transition: transform 0.18s cubic-bezier(.4,0,.2,1), filter 0.18s, box-shadow 0.18s;
+      display: flex; align-items: center; justify-content: flex-end;
+      padding-right: 7px;
+      overflow: hidden;
+    }
+    .bar::before {
+      content: '';
+      position: absolute; left: 0; top: 0; bottom: 0; width: 4px;
+      background: var(--accent);
+      box-shadow: 0 0 8px var(--glow);
+    }
+    .bar:hover {
+      transform: translateY(-2px) scaleY(1.06);
+      filter: saturate(1.18) brightness(1.04);
+      box-shadow: 0 6px 16px -4px var(--glow), inset 0 1px 0 rgba(255,255,255,0.5);
+      z-index: 6;
+    }
+    .bar .blab {
+      font-family: 'Space Mono', monospace;
+      font-size: 8.5px; font-weight: 700;
+      letter-spacing: 0.06em;
+      color: var(--accent);
+      opacity: 0;
+      transition: opacity 0.18s;
+      white-space: nowrap;
+    }
+    .bar:hover .blab { opacity: 0.85; }
+
+    /* Category 1 — Client / Entregas (Teal) */
+    .bar-client {
+      --accent: var(--teal-600); --glow: rgba(20,184,166,0.45);
+      background: linear-gradient(95deg, rgba(20,184,166,0.30), rgba(45,212,191,0.42));
+      border: 1px solid rgba(13,148,136,0.55);
+    }
+    /* Category 2 — Technical config (Medium purple) */
+    .bar-tech {
+      --accent: var(--purple-600); --glow: rgba(139,92,246,0.40);
+      background: linear-gradient(95deg, rgba(139,92,246,0.22), rgba(167,139,250,0.36));
+      border: 1px solid rgba(124,58,237,0.42);
+    }
+    /* Category 3 — AI & automation (Deep purple) */
+    .bar-ai {
+      --accent: var(--purple-700); --glow: rgba(91,33,182,0.45);
+      background: linear-gradient(95deg, rgba(91,33,182,0.30), rgba(124,58,237,0.40));
+      border: 1px solid rgba(91,33,182,0.55);
+    }
+    /* Category 4 — External gate (Amber, exception) */
+    .bar-gate {
+      --accent: var(--amber-600); --glow: rgba(245,158,11,0.40);
+      background: linear-gradient(95deg, rgba(245,158,11,0.20), rgba(251,191,36,0.32));
+      border: 1px dashed rgba(217,119,6,0.65);
+    }
+
+    /* ── MILESTONE (go-live) ── */
+    .milestone {
+      grid-row: 23;
+      align-self: center;
+      justify-self: center;
+      z-index: 5;
+      width: 20px; height: 20px;
+      transform: rotate(45deg);
+      border-radius: 5px;
+      background: linear-gradient(135deg, var(--teal-400), var(--teal-600));
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px var(--teal-400), 0 0 18px rgba(20,184,166,0.7), 0 2px 6px rgba(36,10,82,0.2);
+      animation: msPulse 2.6s ease-in-out infinite;
+    }
+    @keyframes msPulse {
+      0%, 100% { box-shadow: 0 0 0 2px var(--teal-400), 0 0 14px rgba(20,184,166,0.55), 0 2px 6px rgba(36,10,82,0.2); }
+      50%      { box-shadow: 0 0 0 3px var(--teal-300), 0 0 24px rgba(20,184,166,0.9), 0 2px 6px rgba(36,10,82,0.2); }
+    }
+
+    /* ════════ LEGEND ════════ */
+    .legend {
+      margin-top: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 10px;
+    }
+    .legend-title {
+      font-family: 'Space Mono', monospace;
+      font-size: 10px; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink-300);
+      margin-right: 4px;
+    }
+    .legend-chip {
+      display: flex; align-items: center; gap: 8px;
+      padding: 7px 14px 7px 9px;
+      border-radius: 22px;
+      background: var(--surface);
+      border: 1px solid var(--border-strong);
+      font-size: 12px; color: var(--ink-500);
+      letter-spacing: -0.01em;
+      transition: border-color 0.16s, box-shadow 0.16s, transform 0.16s;
+    }
+    .legend-chip:hover {
+      transform: translateY(-1px);
+      border-color: var(--purple-300);
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.12);
+    }
+    .sw { width: 18px; height: 11px; border-radius: 4px; flex-shrink: 0; }
+    .sw-client { background: linear-gradient(95deg, rgba(20,184,166,0.35), rgba(45,212,191,0.5)); border: 1px solid rgba(13,148,136,0.6); }
+    .sw-tech   { background: linear-gradient(95deg, rgba(139,92,246,0.26), rgba(167,139,250,0.42)); border: 1px solid rgba(124,58,237,0.5); }
+    .sw-ai     { background: linear-gradient(95deg, rgba(91,33,182,0.34), rgba(124,58,237,0.44)); border: 1px solid rgba(91,33,182,0.6); }
+    .sw-gate   { background: linear-gradient(95deg, rgba(245,158,11,0.24), rgba(251,191,36,0.36)); border: 1px dashed rgba(217,119,6,0.7); }
+    .sw-off    { background: var(--off-bg); border: 1px solid var(--border-strong); }
+    .sw-ms     { width: 12px; height: 12px; transform: rotate(45deg); border-radius: 3px; background: linear-gradient(135deg, var(--teal-400), var(--teal-600)); border: 1.5px solid #fff; box-shadow: 0 0 0 1.5px var(--teal-400); margin: 0 3px; }
+
+    /* ════════ FOOTER ════════ */
+    .footer-note {
+      margin-top: 18px;
+      font-size: 12px;
+      color: var(--ink-400);
+      letter-spacing: -0.01em;
+      display: flex;
+      align-items: flex-start;
+      gap: 9px;
+      max-width: 760px;
+    }
+    .footer-note .flag {
+      flex-shrink: 0;
+      font-family: 'Space Mono', monospace;
+      font-size: 9px; font-weight: 700; letter-spacing: 0.1em;
+      color: var(--amber-600);
+      background: var(--amber-100);
+      border: 1px solid rgba(217,119,6,0.3);
+      padding: 2px 7px; border-radius: 6px;
+      margin-top: 1px;
+    }
+
+    /* ════════ ENTRY ANIMATION ════════ */
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .page-header { animation: rise 0.55s ease both; }
+    .gantt-card  { animation: rise 0.6s 0.08s ease both; }
+    .legend      { animation: rise 0.55s 0.2s ease both; }
+    .footer-note { animation: rise 0.55s 0.26s ease both; }
+
+    @keyframes growBar { from { transform: scaleX(0); opacity: 0; } to { transform: scaleX(1); opacity: 1; } }
+    .bar { transform-origin: left center; animation: growBar 0.5s cubic-bezier(.2,.7,.3,1) both; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+    }
+
+    /* ════════ RESPONSIVE ════════ */
+    @media (max-width: 980px) {
+      body { padding: 32px 18px 48px; }
+      .page-title { font-size: 32px; }
+      .gantt-card { overflow-x: auto; }
+      .g { min-width: 920px; }
+      .meta-stack { display: none; }
+    }
+
+    @media print {
+      body { padding: 0; background: #fff; }
+      .gantt-card { box-shadow: none; }
+      .bar, .ph, .milestone { animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- ══ PAGE HEADER ══ -->
+    <header class="page-header">
+      <div>
+        <div class="eyebrow"><span class="dot"></span>Máquina de Demanda · Ativação</div>
+        <h1 class="page-title">Cronograma de <em>Implantação</em></h1>
+        <p class="page-subtitle">Galeria dos Tecidos · <b>20 dias corridos</b> · 01 a 20 de junho de 2026</p>
+      </div>
+      <div class="meta-stack">
+        <div class="meta-row">
+          <div class="stat"><span class="num">6</span><span class="cap">Fases</span></div>
+          <div class="stat"><span class="num">16</span><span class="cap">Tarefas</span></div>
+          <div class="stat"><span class="num teal">19/06</span><span class="cap">Go-live</span></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ══ GANTT ══ -->
+    <div class="gantt-card">
+      <div class="g">
+
+        <!-- corner + weeks -->
+        <div class="corner"><span>Frentes de trabalho</span></div>
+        <div class="wk wk-first" style="grid-column:2/9">Semana 1 · 01–07 jun</div>
+        <div class="wk" style="grid-column:9/16">Semana 2 · 08–14 jun</div>
+        <div class="wk" style="grid-column:16/22">Semana 3 · 15–20 jun</div>
+
+        <!-- blueprint guides -->
+        <div class="guides"></div>
+
+        <!-- off-day shading -->
+        <div class="off" style="grid-column:5"></div>
+        <div class="off" style="grid-column:6"></div>
+        <div class="off" style="grid-column:7"></div>
+        <div class="off" style="grid-column:8"></div>
+        <div class="off" style="grid-column:14"></div>
+        <div class="off" style="grid-column:15"></div>
+        <div class="off" style="grid-column:21"></div>
+
+        <!-- day headers -->
+        <div class="day wkguide" style="grid-column:2"><b>01</b>seg</div>
+        <div class="day" style="grid-column:3"><b>02</b>ter</div>
+        <div class="day" style="grid-column:4"><b>03</b>qua</div>
+        <div class="day" style="grid-column:5"><b>04</b><span class="hol">qui ✦</span></div>
+        <div class="day" style="grid-column:6"><b>05</b>sex</div>
+        <div class="day" style="grid-column:7"><b>06</b>sáb</div>
+        <div class="day" style="grid-column:8"><b>07</b>dom</div>
+        <div class="day wkguide" style="grid-column:9"><b>08</b>seg</div>
+        <div class="day" style="grid-column:10"><b>09</b>ter</div>
+        <div class="day" style="grid-column:11"><b>10</b>qua</div>
+        <div class="day" style="grid-column:12"><b>11</b>qui</div>
+        <div class="day" style="grid-column:13"><b>12</b>sex</div>
+        <div class="day" style="grid-column:14"><b>13</b>sáb</div>
+        <div class="day" style="grid-column:15"><b>14</b>dom</div>
+        <div class="day wkguide" style="grid-column:16"><b>15</b>seg</div>
+        <div class="day" style="grid-column:17"><b>16</b>ter</div>
+        <div class="day" style="grid-column:18"><b>17</b>qua</div>
+        <div class="day" style="grid-column:19"><b>18</b>qui</div>
+        <div class="day" style="grid-column:20"><b>19</b>sex</div>
+        <div class="day" style="grid-column:21"><b>20</b>sáb</div>
+
+        <!-- ══ FASE 1 ══ -->
+        <div class="ph" style="grid-row:3">
+          <span class="pnum">F1</span><span class="ptitle">Onboarding e diagnóstico</span>
+          <span class="ptag">01 – 03 jun</span>
+        </div>
+        <div class="rowfill" style="grid-row:4"></div>
+        <div class="lbl" style="grid-row:4;--cat:var(--teal-500)">Kickoff e acessos <span class="dur">1d</span></div>
+        <div class="bar bar-client" style="grid-column:2/3;grid-row:4"><span class="blab">1d</span></div>
+        <div class="rowfill" style="grid-row:5"></div>
+        <div class="lbl" style="grid-row:5;--cat:var(--teal-500)">Validar pipelines e ICP <span class="dur">2d</span></div>
+        <div class="bar bar-client" style="grid-column:2/4;grid-row:5"><span class="blab">2d</span></div>
+        <div class="rowfill" style="grid-row:6"></div>
+        <div class="lbl" style="grid-row:6;--cat:var(--teal-500)">Coleta de insumos da IA <span class="dur">2d</span></div>
+        <div class="bar bar-client" style="grid-column:3/5;grid-row:6"><span class="blab">2d</span></div>
+
+        <!-- ══ FASE 2 ══ -->
+        <div class="ph crit" style="grid-row:7">
+          <span class="pnum">F2</span><span class="ptitle">Conexão BM e WABA</span>
+          <span class="ptag">⚠ Caminho crítico</span>
+        </div>
+        <div class="rowfill" style="grid-row:8"></div>
+        <div class="lbl" style="grid-row:8;--cat:var(--amber-500)">Criar BM e verificação <span class="dur">8d</span></div>
+        <div class="bar bar-gate" style="grid-column:2/10;grid-row:8"><span class="blab">8d</span></div>
+        <div class="rowfill" style="grid-row:9"></div>
+        <div class="lbl" style="grid-row:9;--cat:var(--amber-500)">Templates Meta (aprovação) <span class="dur">10d</span></div>
+        <div class="bar bar-gate" style="grid-column:4/14;grid-row:9"><span class="blab">10d</span></div>
+
+        <!-- ══ FASE 3 ══ -->
+        <div class="ph" style="grid-row:10">
+          <span class="pnum">F3</span><span class="ptitle">Infra e agentes de IA</span>
+          <span class="ptag">03 – 12 jun</span>
+        </div>
+        <div class="rowfill" style="grid-row:11"></div>
+        <div class="lbl" style="grid-row:11;--cat:var(--purple-500)">Provisionar infraestrutura <span class="dur">6d</span></div>
+        <div class="bar bar-tech" style="grid-column:4/10;grid-row:11"><span class="blab">6d</span></div>
+        <div class="rowfill" style="grid-row:12"></div>
+        <div class="lbl" style="grid-row:12;--cat:var(--purple-700)">Construir agentes de IA <span class="dur">5d</span></div>
+        <div class="bar bar-ai" style="grid-column:9/14;grid-row:12"><span class="blab">5d</span></div>
+
+        <!-- ══ FASE 4 ══ -->
+        <div class="ph" style="grid-row:13">
+          <span class="pnum">F4</span><span class="ptitle">Pipelines e automações</span>
+          <span class="ptag">09 – 15 jun</span>
+        </div>
+        <div class="rowfill" style="grid-row:14"></div>
+        <div class="lbl" style="grid-row:14;--cat:var(--purple-500)">Estrutura dos pipelines <span class="dur">3d</span></div>
+        <div class="bar bar-tech" style="grid-column:10/13;grid-row:14"><span class="blab">3d</span></div>
+        <div class="rowfill" style="grid-row:15"></div>
+        <div class="lbl" style="grid-row:15;--cat:var(--purple-700)">Automações e cadências <span class="dur">3d</span></div>
+        <div class="bar bar-ai" style="grid-column:11/14;grid-row:15"><span class="blab">3d</span></div>
+        <div class="rowfill" style="grid-row:16"></div>
+        <div class="lbl" style="grid-row:16;--cat:var(--purple-500)">Higienizar e migrar base <span class="dur">5d</span></div>
+        <div class="bar bar-tech" style="grid-column:12/17;grid-row:16"><span class="blab">5d</span></div>
+
+        <!-- ══ FASE 5 ══ -->
+        <div class="ph" style="grid-row:17">
+          <span class="pnum">F5</span><span class="ptitle">Homologação</span>
+          <span class="ptag">15 – 18 jun</span>
+        </div>
+        <div class="rowfill" style="grid-row:18"></div>
+        <div class="lbl" style="grid-row:18;--cat:var(--purple-500)">Testes ponta a ponta <span class="dur">3d</span></div>
+        <div class="bar bar-tech" style="grid-column:16/19;grid-row:18"><span class="blab">3d</span></div>
+        <div class="rowfill" style="grid-row:19"></div>
+        <div class="lbl" style="grid-row:19;--cat:var(--purple-700)">Ajuste fino dos agentes <span class="dur">2d</span></div>
+        <div class="bar bar-ai" style="grid-column:17/19;grid-row:19"><span class="blab">2d</span></div>
+        <div class="rowfill" style="grid-row:20"></div>
+        <div class="lbl" style="grid-row:20;--cat:var(--amber-500)">Aprovação do cliente (gate) <span class="dur">1d</span></div>
+        <div class="bar bar-gate" style="grid-column:19/20;grid-row:20"><span class="blab">1d</span></div>
+
+        <!-- ══ FASE 6 ══ -->
+        <div class="ph" style="grid-row:21">
+          <span class="pnum">F6</span><span class="ptitle">Treinamento e go-live</span>
+          <span class="ptag">18 – 20 jun</span>
+        </div>
+        <div class="rowfill" style="grid-row:22"></div>
+        <div class="lbl" style="grid-row:22;--cat:var(--teal-500)">Treinamento da plataforma <span class="dur">2d</span></div>
+        <div class="bar bar-client" style="grid-column:19/21;grid-row:22"><span class="blab">2d</span></div>
+        <div class="rowfill" style="grid-row:23"></div>
+        <div class="lbl" style="grid-row:23;--cat:var(--teal-600)">Go-live / soft launch <span class="dur">★</span></div>
+        <div class="milestone" style="grid-column:20/21" title="Go-live · 19/06"></div>
+        <div class="rowfill" style="grid-row:24"></div>
+        <div class="lbl" style="grid-row:24;--cat:var(--teal-500)">Acompanhamento e dashboard <span class="dur">2d</span></div>
+        <div class="bar bar-client" style="grid-column:20/22;grid-row:24"><span class="blab">2d</span></div>
+
+      </div>
+    </div>
+
+    <!-- ══ LEGEND ══ -->
+    <div class="legend">
+      <span class="legend-title">Legenda</span>
+      <div class="legend-chip"><span class="sw sw-client"></span>Entregas e contato com cliente</div>
+      <div class="legend-chip"><span class="sw sw-tech"></span>Configuração técnica</div>
+      <div class="legend-chip"><span class="sw sw-ai"></span>IA e automação</div>
+      <div class="legend-chip"><span class="sw sw-gate"></span>Dependência externa / gate</div>
+      <div class="legend-chip"><span class="sw-ms"></span>Go-live (marco)</div>
+      <div class="legend-chip"><span class="sw sw-off"></span>Dia não útil</div>
+    </div>
+
+    <!-- ══ FOOTER ══ -->
+    <p class="footer-note">
+      <span class="flag">NOTA</span>
+      04/06 Corpus Christi (feriado), com emenda provável em 05/06. Go-live previsto na sexta 19/06; sábado 20/06 fica como buffer.
+    </p>
+
+  </div>
+</body>
+</html>
