@@ -195,7 +195,7 @@
     /* ── timeline blueprint guides (full height) ── */
     .guides {
       grid-column: 2 / -1;
-      grid-row: 3 / 25;
+      grid-row: 3 / 26;
       pointer-events: none;
       z-index: 0;
       background-image: repeating-linear-gradient(
@@ -264,7 +264,7 @@
 
     /* ── OFF DAYS ── */
     .off {
-      grid-row: 2 / 25;
+      grid-row: 2 / 26;
       background: var(--off-bg);
       z-index: 0;
     }
@@ -428,7 +428,7 @@
 
     /* ── MILESTONE (go-live) ── */
     .milestone {
-      grid-row: 23;
+      grid-row: 24;
       align-self: center;
       justify-self: center;
       z-index: 5;
@@ -541,7 +541,6 @@
 <body>
   <div class="wrap">
 
-    <!-- ══ PAGE HEADER ══ -->
     <header class="page-header">
       <div>
         <div class="eyebrow"><span class="dot"></span>Máquina de Demanda · Ativação</div>
@@ -551,26 +550,22 @@
       <div class="meta-stack">
         <div class="meta-row">
           <div class="stat"><span class="num">6</span><span class="cap">Fases</span></div>
-          <div class="stat"><span class="num">16</span><span class="cap">Tarefas</span></div>
+          <div class="stat"><span class="num">17</span><span class="cap">Tarefas</span></div>
           <div class="stat"><span class="num teal">19/06</span><span class="cap">Go-live</span></div>
         </div>
       </div>
     </header>
 
-    <!-- ══ GANTT ══ -->
     <div class="gantt-card">
       <div class="g">
 
-        <!-- corner + weeks -->
         <div class="corner"><span>Frentes de trabalho</span></div>
         <div class="wk wk-first" style="grid-column:2/9">Semana 1 · 01–07 jun</div>
         <div class="wk" style="grid-column:9/16">Semana 2 · 08–14 jun</div>
         <div class="wk" style="grid-column:16/22">Semana 3 · 15–20 jun</div>
 
-        <!-- blueprint guides -->
         <div class="guides"></div>
 
-        <!-- off-day shading -->
         <div class="off" style="grid-column:5"></div>
         <div class="off" style="grid-column:6"></div>
         <div class="off" style="grid-column:7"></div>
@@ -579,7 +574,6 @@
         <div class="off" style="grid-column:15"></div>
         <div class="off" style="grid-column:21"></div>
 
-        <!-- day headers -->
         <div class="day wkguide" style="grid-column:2"><b>01</b>seg</div>
         <div class="day" style="grid-column:3"><b>02</b>ter</div>
         <div class="day" style="grid-column:4"><b>03</b>qua</div>
@@ -601,7 +595,6 @@
         <div class="day" style="grid-column:20"><b>19</b>sex</div>
         <div class="day" style="grid-column:21"><b>20</b>sáb</div>
 
-        <!-- ══ FASE 1 ══ -->
         <div class="ph" style="grid-row:3">
           <span class="pnum">F1</span><span class="ptitle">Onboarding e diagnóstico</span>
           <span class="ptag">01 – 03 jun</span>
@@ -616,7 +609,6 @@
         <div class="lbl" style="grid-row:6;--cat:var(--teal-500)">Coleta de insumos da IA <span class="dur">2d</span></div>
         <div class="bar bar-client" style="grid-column:3/5;grid-row:6"><span class="blab">2d</span></div>
 
-        <!-- ══ FASE 2 ══ -->
         <div class="ph crit" style="grid-row:7">
           <span class="pnum">F2</span><span class="ptitle">Conexão BM e WABA</span>
           <span class="ptag">⚠ Caminho crítico</span>
@@ -625,70 +617,68 @@
         <div class="lbl" style="grid-row:8;--cat:var(--amber-500)">Criar BM e verificação <span class="dur">8d</span></div>
         <div class="bar bar-gate" style="grid-column:2/10;grid-row:8"><span class="blab">8d</span></div>
         <div class="rowfill" style="grid-row:9"></div>
-        <div class="lbl" style="grid-row:9;--cat:var(--amber-500)">Templates Meta (aprovação) <span class="dur">10d</span></div>
-        <div class="bar bar-gate" style="grid-column:4/14;grid-row:9"><span class="blab">10d</span></div>
+        <div class="lbl" style="grid-row:9;--cat:var(--amber-500)">Disponibilização de Número WhatsApp <span class="dur">11d</span></div>
+        <div class="bar bar-gate" style="grid-column:3/14;grid-row:9"><span class="blab">11d</span></div>
+        <div class="rowfill" style="grid-row:10"></div>
+        <div class="lbl" style="grid-row:10;--cat:var(--amber-500)">Templates Meta (aprovação) <span class="dur">14d</span></div>
+        <div class="bar bar-gate" style="grid-column:4/18;grid-row:10"><span class="blab">14d</span></div>
 
-        <!-- ══ FASE 3 ══ -->
-        <div class="ph" style="grid-row:10">
+        <div class="ph" style="grid-row:11">
           <span class="pnum">F3</span><span class="ptitle">Infra e agentes de IA</span>
           <span class="ptag">03 – 12 jun</span>
         </div>
-        <div class="rowfill" style="grid-row:11"></div>
-        <div class="lbl" style="grid-row:11;--cat:var(--purple-500)">Provisionar infraestrutura <span class="dur">6d</span></div>
-        <div class="bar bar-tech" style="grid-column:4/10;grid-row:11"><span class="blab">6d</span></div>
         <div class="rowfill" style="grid-row:12"></div>
-        <div class="lbl" style="grid-row:12;--cat:var(--purple-700)">Construir agentes de IA <span class="dur">5d</span></div>
-        <div class="bar bar-ai" style="grid-column:9/14;grid-row:12"><span class="blab">5d</span></div>
+        <div class="lbl" style="grid-row:12;--cat:var(--purple-500)">Provisionar infraestrutura <span class="dur">6d</span></div>
+        <div class="bar bar-tech" style="grid-column:4/10;grid-row:12"><span class="blab">6d</span></div>
+        <div class="rowfill" style="grid-row:13"></div>
+        <div class="lbl" style="grid-row:13;--cat:var(--purple-700)">Construir agentes de IA <span class="dur">5d</span></div>
+        <div class="bar bar-ai" style="grid-column:9/14;grid-row:13"><span class="blab">5d</span></div>
 
-        <!-- ══ FASE 4 ══ -->
-        <div class="ph" style="grid-row:13">
+        <div class="ph" style="grid-row:14">
           <span class="pnum">F4</span><span class="ptitle">Pipelines e automações</span>
           <span class="ptag">09 – 15 jun</span>
         </div>
-        <div class="rowfill" style="grid-row:14"></div>
-        <div class="lbl" style="grid-row:14;--cat:var(--purple-500)">Estrutura dos pipelines <span class="dur">3d</span></div>
-        <div class="bar bar-tech" style="grid-column:10/13;grid-row:14"><span class="blab">3d</span></div>
         <div class="rowfill" style="grid-row:15"></div>
-        <div class="lbl" style="grid-row:15;--cat:var(--purple-700)">Automações e cadências <span class="dur">3d</span></div>
-        <div class="bar bar-ai" style="grid-column:11/14;grid-row:15"><span class="blab">3d</span></div>
+        <div class="lbl" style="grid-row:15;--cat:var(--purple-500)">Estrutura dos pipelines <span class="dur">3d</span></div>
+        <div class="bar bar-tech" style="grid-column:10/13;grid-row:15"><span class="blab">3d</span></div>
         <div class="rowfill" style="grid-row:16"></div>
-        <div class="lbl" style="grid-row:16;--cat:var(--purple-500)">Higienizar e migrar base <span class="dur">5d</span></div>
-        <div class="bar bar-tech" style="grid-column:12/17;grid-row:16"><span class="blab">5d</span></div>
+        <div class="lbl" style="grid-row:16;--cat:var(--purple-700)">Automações e cadências <span class="dur">3d</span></div>
+        <div class="bar bar-ai" style="grid-column:11/14;grid-row:16"><span class="blab">3d</span></div>
+        <div class="rowfill" style="grid-row:17"></div>
+        <div class="lbl" style="grid-row:17;--cat:var(--purple-500)">Higienizar e migrar base <span class="dur">5d</span></div>
+        <div class="bar bar-tech" style="grid-column:12/17;grid-row:17"><span class="blab">5d</span></div>
 
-        <!-- ══ FASE 5 ══ -->
-        <div class="ph" style="grid-row:17">
+        <div class="ph" style="grid-row:18">
           <span class="pnum">F5</span><span class="ptitle">Homologação</span>
           <span class="ptag">15 – 18 jun</span>
         </div>
-        <div class="rowfill" style="grid-row:18"></div>
-        <div class="lbl" style="grid-row:18;--cat:var(--purple-500)">Testes ponta a ponta <span class="dur">3d</span></div>
-        <div class="bar bar-tech" style="grid-column:16/19;grid-row:18"><span class="blab">3d</span></div>
         <div class="rowfill" style="grid-row:19"></div>
-        <div class="lbl" style="grid-row:19;--cat:var(--purple-700)">Ajuste fino dos agentes <span class="dur">2d</span></div>
-        <div class="bar bar-ai" style="grid-column:17/19;grid-row:19"><span class="blab">2d</span></div>
+        <div class="lbl" style="grid-row:19;--cat:var(--purple-500)">Testes ponta a ponta <span class="dur">3d</span></div>
+        <div class="bar bar-tech" style="grid-column:16/19;grid-row:19"><span class="blab">3d</span></div>
         <div class="rowfill" style="grid-row:20"></div>
-        <div class="lbl" style="grid-row:20;--cat:var(--amber-500)">Aprovação do cliente (gate) <span class="dur">1d</span></div>
-        <div class="bar bar-gate" style="grid-column:19/20;grid-row:20"><span class="blab">1d</span></div>
+        <div class="lbl" style="grid-row:20;--cat:var(--purple-700)">Ajuste fino dos agentes <span class="dur">2d</span></div>
+        <div class="bar bar-ai" style="grid-column:17/19;grid-row:20"><span class="blab">2d</span></div>
+        <div class="rowfill" style="grid-row:21"></div>
+        <div class="lbl" style="grid-row:21;--cat:var(--amber-500)">Aprovação do cliente (gate) <span class="dur">1d</span></div>
+        <div class="bar bar-gate" style="grid-column:19/20;grid-row:21"><span class="blab">1d</span></div>
 
-        <!-- ══ FASE 6 ══ -->
-        <div class="ph" style="grid-row:21">
+        <div class="ph" style="grid-row:22">
           <span class="pnum">F6</span><span class="ptitle">Treinamento e go-live</span>
           <span class="ptag">18 – 20 jun</span>
         </div>
-        <div class="rowfill" style="grid-row:22"></div>
-        <div class="lbl" style="grid-row:22;--cat:var(--teal-500)">Treinamento da plataforma <span class="dur">2d</span></div>
-        <div class="bar bar-client" style="grid-column:19/21;grid-row:22"><span class="blab">2d</span></div>
         <div class="rowfill" style="grid-row:23"></div>
-        <div class="lbl" style="grid-row:23;--cat:var(--teal-600)">Go-live / soft launch <span class="dur">★</span></div>
-        <div class="milestone" style="grid-column:20/21" title="Go-live · 19/06"></div>
+        <div class="lbl" style="grid-row:23;--cat:var(--teal-500)">Treinamento da plataforma <span class="dur">2d</span></div>
+        <div class="bar bar-client" style="grid-column:19/21;grid-row:23"><span class="blab">2d</span></div>
         <div class="rowfill" style="grid-row:24"></div>
-        <div class="lbl" style="grid-row:24;--cat:var(--teal-500)">Acompanhamento e dashboard <span class="dur">2d</span></div>
-        <div class="bar bar-client" style="grid-column:20/22;grid-row:24"><span class="blab">2d</span></div>
+        <div class="lbl" style="grid-row:24;--cat:var(--teal-600)">Go-live / soft launch <span class="dur">★</span></div>
+        <div class="milestone" style="grid-column:20/21" title="Go-live · 19/06"></div>
+        <div class="rowfill" style="grid-row:25"></div>
+        <div class="lbl" style="grid-row:25;--cat:var(--teal-500)">Acompanhamento e dashboard <span class="dur">2d</span></div>
+        <div class="bar bar-client" style="grid-column:20/22;grid-row:25"><span class="blab">2d</span></div>
 
       </div>
     </div>
 
-    <!-- ══ LEGEND ══ -->
     <div class="legend">
       <span class="legend-title">Legenda</span>
       <div class="legend-chip"><span class="sw sw-client"></span>Entregas e contato com cliente</div>
@@ -699,7 +689,6 @@
       <div class="legend-chip"><span class="sw sw-off"></span>Dia não útil</div>
     </div>
 
-    <!-- ══ FOOTER ══ -->
     <p class="footer-note">
       <span class="flag">NOTA</span>
       04/06 Corpus Christi (feriado), com emenda provável em 05/06. Go-live previsto na sexta 19/06; sábado 20/06 fica como buffer.
